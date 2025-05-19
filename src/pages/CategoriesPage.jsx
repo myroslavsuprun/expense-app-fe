@@ -76,20 +76,13 @@ function CategoriesPage() {
 
     try {
       setIsSubmitting(true);
-      await api.deleteCategory(categoryToDelete.id);
+      const response = await api.deleteCategory(categoryToDelete.id);
       setCategories((prev) => prev.filter((c) => c.id !== categoryToDelete.id));
       setCategoryToDelete(null);
-      toast({
-        title: 'Success',
-        description: 'Category deleted successfully',
-      });
+      toast.success(response.message || 'Category deleted successfully');
     } catch (err) {
       console.error('Error deleting category:', err);
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: err.message || 'Failed to delete category',
-      });
+      toast.error(err.message || 'Failed to delete category');
     } finally {
       setIsSubmitting(false);
     }
