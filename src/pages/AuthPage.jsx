@@ -90,7 +90,7 @@ function AuthPage() {
 
             <TabsContent value="login">
               <form onSubmit={handleLogin}>
-                <CardContent className="space-y-4 pt-4">
+                <CardContent className="space-y-4 pt-4 mb-8">
                   {error && (
                     <Alert variant="destructive">
                       <AlertCircle className="h-4 w-4" />
@@ -135,7 +135,7 @@ function AuthPage() {
 
             <TabsContent value="register">
               <form onSubmit={handleRegister}>
-                <CardContent className="space-y-4 pt-4">
+                <CardContent className="space-y-4 pt-4 mb-8">
                   {error && (
                     <Alert variant="destructive">
                       <AlertCircle className="h-4 w-4" />
